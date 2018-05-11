@@ -1,13 +1,8 @@
-var books = document.querySelectorAll("#book-list li .name");
+const banner = document.querySelector("#page-banner");
 
-Array.from(books).forEach(function(book){
-    book.textContent += " (book title)";
-});
+console.log("#page-banner node type is:", banner.nodeType);
+console.log("#page-banner node name is:", banner.nodeName);
+console.log("#page-banner node has child nodes is:", banner.hasChildNodes());
 
-const bookList = document.querySelector("#book-list");
-
-// Uncomment line 10 to see entire book list replaced
-// bookList.innerHTML = "<h2> Books and more books.</h2>";
-
-//Append text to html, will show at end of html
-bookList.innerHTML += "<p>This is how you add html</p>";
+const clonedBanner = banner.cloneNode(false);
+console.log(clonedBanner);
