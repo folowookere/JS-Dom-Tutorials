@@ -1,16 +1,8 @@
-var buttons = document.querySelectorAll("#book-list ul li");
-
-//Deleting li elements after delete button is clicked
-Array.from(buttons).forEach(function(button){
-    button.addEventListener("click", function(e) {
+const list = document.querySelector("#book-list ul");
+//adding event listener to ul instead to delete books
+list.addEventListener("click", function(e){
+    if(e.target.className == "delete") {
         const li = e.target.parentElement;
-        li.parentNode.removeChild(li)
-    });
-});
-
-const link = document.querySelector("#page-banner a");
-
-link.addEventListener("click", function(e){
-    e.preventDefault();
-    console.log("navigation to", e.target.textContent, "was prevented");
+        list.removeChild(li);
+    }
 })
