@@ -1,9 +1,16 @@
-const bookList = document.querySelector("#book-list");
+var buttons = document.querySelectorAll("#book-list ul li");
 
-console.log("book-list next sibling is:", bookList.nextSibling);
-console.log("book-list next sibling is:", bookList.nextElementSibling);
+//Deleting li elements after delete button is clicked
+Array.from(buttons).forEach(function(button){
+    button.addEventListener("click", function(e) {
+        const li = e.target.parentElement;
+        li.parentNode.removeChild(li)
+    });
+});
 
-console.log("book-list previous sibling is:", bookList.previousSibling);
-console.log("book-list previous sibling is:", bookList.previousElementSibling);
+const link = document.querySelector("#page-banner a");
 
-bookList.previousElementSibling.querySelector("p").innerHTML += "<br/> Too cool for everyone!";
+link.addEventListener("click", function(e){
+    e.preventDefault();
+    console.log("navigation to", e.target.textContent, "was prevented");
+})
