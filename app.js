@@ -57,7 +57,7 @@ hideBox.addEventListener ("change", function(e) {
 
 //Filter books with search bar
 const searchBar = document.forms["search-books"].querySelector("input");
-searchBar.addEventListerner("keyup", function(e){
+searchBar.addEventListener("keyup", function(e){
     const term = e.target.value.toLowerCase();
     const books = list.getElementsByTagName("li");
     Array.from(books).forEach(function(book) {
