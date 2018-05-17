@@ -10,33 +10,29 @@ list.addEventListener("click", function(e){
 });
 
 //Add new books to list
-
-const addForm = document.forms["add-book"]
-
-addForm.addEventListener("submit", function(e){
-    e.preventDefault();
-    const value = addForm.querySelector("input[type='text']").value;
-
-
-//Add content
-deleteBtnSpan.textContent = "delete";
-bookNameSpan.textContent = value;
-
-//Add classes to elements
-bookNameSpan.classList.add("name");
-deleteBtnSpan.classList.add("delete");
-
-
-//Append to the document
-li.appendChild(bookNameSpan);
-li.appendChild(deleteBtnSpan);
-list.appendChild(li);
-
 //Create elements
 const li = document.createElement("li");
 const bookNameSpan = document.createElement("span");
 const deleteBtnSpan = document.createElement("span");
 
+const addForm = document.forms["add-book"];
+
+addForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    const value = addForm.querySelector("input[type='text']").value;
+
+//Add classes to elements
+bookNameSpan.classList.add("name");
+deleteBtnSpan.classList.add("delete");
+
+//Add content
+bookNameSpan.textContent = value;
+deleteBtnSpan.textContent = "delete";
+
+//Append to the document
+li.appendChild(bookNameSpan);
+li.appendChild(deleteBtnSpan);
+list.appendChild(li);
 
 });
 
@@ -53,8 +49,8 @@ hideBox.addEventListener ("change", function(e) {
 //Tabbed Content
 const tabs = document.querySelector(".tabs");
 const panels = document.querySelectorAll(".panel");
-tabs.addEventListener("click", function(e){
-    if(e.target.tagName == "LI") {
+tabs.addEventListener("click", function(e) {
+    if (e.target.tagName == "LI") {
         const targetPanel = document.querySelector(e.target.dataset.target);
         panels.forEach(function(panel) {
             if (panel == targetPanel) {
